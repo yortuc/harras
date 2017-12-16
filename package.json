@@ -1,0 +1,14 @@
+{
+  "name": "ces_game_engine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  }
+}
