@@ -1,5 +1,6 @@
-const canvas = document.querySelector('canvas');
-const ctx = canvas.getContext('2d')
+import rectangleRenderer from './systems/rectangleRenderer'
+
+const canvas = document.querySelector('canvas')
 
 const gameState = [
     {
@@ -13,29 +14,8 @@ const gameState = [
     }
 ]
 
-function rectangleRenderer(state, ctx) {
-    clearScene(ctx)
-
-    state.filter(e => e.size)
-        .forEach(e => drawRect(e, ctx))
-
-    return [...state]
-}
-
-function clearScene(ctx) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-}
-
-function drawRect(entity, ctx) {
-    ctx.save()
-    ctx.translate(entity.position.x, entity.position.y)
-    ctx.fillStyle = entity.color || 'black'
-    ctx.fillRect(0,0, entity.size.width, entity.size.height)
-    ctx.restore()
-}
-
 function main(state){
-    const newState = rectangleRenderer(state, ctx)
+    const newState = rectangleRenderer(state, canvas)
     window.requestAnimationFrame(() => main(newState))
 }
 
